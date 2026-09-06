@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#101522">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>RLCS Manager Mobile</title>
+</head>
+<body>
+
+<div id="managerExtras" class="manager-extras hidden">
+  <section class="panel">
+    <div class="panel-head"><h2>Manager-Zentrale</h2><span id="difficultyBadge" class="pill"></span></div>
+    <div class="mini-grid">
+      <div><span>Fanvertrauen</span><b id="fanTrust">50</b></div>
+      <div><span>Team-Moral</span><b id="teamMorale">50</b></div>
+      <div><span>Form</span><b id="teamForm">50</b></div>
+      <div><span>Erfahrung</span><b id="seasonNo">1</b></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><h2>Letztes Match</h2><span id="lastMatchResult"></span></div>
+    <div id="lastMatchCard" class="match-card muted">Noch kein Match gespielt.</div>
+  </section>
+</div>
+
+<div id="app">
+<header class="topbar">
+  <div>
+    <div class="eyebrow">ESPORTS MANAGER</div>
+    <h1>RLCS Manager</h1>
+  </div>
+  <button class="iconbtn" onclick="openModal('saveModal')">💾</button>
+</header>
+<main id="screen"></main>
+<nav class="bottomnav">
+  <button data-tab="home" onclick="go('home')">🏠<span>Home</span></button>
+  <button data-tab="team" onclick="go('team')">👥<span>Team</span></button>
+  <button data-tab="market" onclick="go('market')">🔄<span>Transfers</span></button>
+  <button data-tab="academy" onclick="go('academy')">🎓<span>Academy</span></button>
+  <button data-tab="league" onclick="go('league')">🏆<span>Liga</span></button>
+</nav>
+</div>
+
+<div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()">
+  <div class="sheet" id="modalContent"></div>
+</div>
+
+<script src="app.js"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}</script></body>
+</html>
